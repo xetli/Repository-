@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ball : MonoBehaviour {
-    public Paddle paddle;
+    Paddle paddle;
     Vector3 paddleBallPosDiff;
     bool gamestarted = false;
 
 	// Use this for initialization
 	void Start () {
+        paddle = GameObject.FindObjectOfType<Paddle>();
         paddleBallPosDiff = this.transform.position - paddle.transform.position;
     }
 	
@@ -26,4 +27,13 @@ public class ball : MonoBehaviour {
         }
 
         }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (gamestarted) {
+            GetComponent<AudioSource>().Play();
+        } //if true
+
+        
+    }
 }

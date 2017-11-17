@@ -22,4 +22,11 @@ public class LevelManager : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadNextScene()
+    {
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+        currentscene++;
+        SceneManager.LoadScene(currentscene);
+    }
 }
